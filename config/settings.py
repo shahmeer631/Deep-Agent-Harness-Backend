@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     openai_api_key: str = ""
-    openai_model: str = "gpt-4.1-mini"
+    openai_model: str = "gpt-4o-mini"
     supabase_url: str = ""
     supabase_service_role_key: str = ""
     agent_api_key: str = ""
