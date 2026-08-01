@@ -11,7 +11,8 @@ class Settings(BaseSettings):
     supabase_url: str = ""
     supabase_service_role_key: str = ""
     agent_api_key: str = ""
-    cors_origins: str = "http://localhost:3000"
+    # "*" allows all browser origins (safe here: no cookie auth on the agent API)
+    cors_origins: str = "*"
     host: str = "0.0.0.0"
     port: int = 8000
 
@@ -19,7 +20,7 @@ class Settings(BaseSettings):
     def cors_origin_list(self) -> list[str]:
         origins: list[str] = []
         for origin in self.cors_origins.split(","):
-            cleaned = origin.strip().rstrip("/")
+            cleaned = origin.strip().strip("\"'").rstrip("/")
             if cleaned:
                 origins.append(cleaned)
         return origins
