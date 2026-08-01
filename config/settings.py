@@ -6,8 +6,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    google_api_key: str = ""
-    gemini_model: str = "gemini-3.5-flash"
+    openai_api_key: str = ""
+    openai_model: str = "gpt-4.1-mini"
     supabase_url: str = ""
     supabase_service_role_key: str = ""
     agent_api_key: str = ""

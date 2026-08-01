@@ -34,7 +34,7 @@ async def health() -> HealthResponse:
     settings = get_settings()
     return HealthResponse(
         status="ok",
-        llm_configured=bool(settings.google_api_key),
+        llm_configured=bool(settings.openai_api_key),
         supabase_configured=bool(
             settings.supabase_url and settings.supabase_service_role_key
         ),
